@@ -1,11 +1,13 @@
 # ==============================================================================
 # Test Suite Configuration
 # ==============================================================================
+
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 # ==============================================================================
 # Unity Test Framework Dependency
 # ==============================================================================
+
 # Try to find Unity framework locally first (if installed on the system)
 # If not found, download it using FetchContent
 
@@ -110,6 +112,7 @@ endif()
 # ==============================================================================
 # Test Executable Definition
 # ==============================================================================
+
 # Create test executable with all test source files
 add_executable(TestScaffoldProject)
 
@@ -122,6 +125,7 @@ target_sources(TestScaffoldProject
 # ==============================================================================
 # Test Dependencies and Libraries
 # ==============================================================================
+
 # Link the test executable against the library under test and Unity
 target_link_libraries(TestScaffoldProject
     PRIVATE
@@ -143,6 +147,7 @@ endif()
 # ==============================================================================
 # Test Registration
 # ==============================================================================
+
 # Register the test executable with CTest
 add_test(
     NAME scaffold_project_unit_tests
@@ -165,6 +170,7 @@ set_tests_properties(scaffold_project_unit_tests
 # ==============================================================================
 # Summary
 # ==============================================================================
+
 message(STATUS "Test suite configured successfully")
 if(UNITY_FOUND OR Unity_FOUND)
     message(STATUS "  Unity source: System installation")

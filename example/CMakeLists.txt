@@ -23,7 +23,7 @@ if(UNIX AND NOT CMAKE_SYSTEM_NAME STREQUAL "Zephyr")
     # Using the alias target ensures proper namespacing
     target_link_libraries(ScaffoldProjectExample
         PRIVATE
-            ScaffoldProject::ScaffoldProject
+            ScaffoldProject
     )
 
     # Set C99 standard for the example
