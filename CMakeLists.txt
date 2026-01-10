@@ -228,6 +228,7 @@ install(
 # ==============================================================================
 # CMake Package Configuration
 # ==============================================================================
+
 # Install CMake targets file (allows find_package to work)
 install(
     EXPORT ScaffoldProjectTargets
@@ -265,6 +266,7 @@ install(
 # ==============================================================================
 # pkg-config Support
 # ==============================================================================
+
 # Generate and install pkg-config file for projects using pkg-config
 # instead of CMake's find_package
 
@@ -285,6 +287,7 @@ install(
 # ==============================================================================
 # Summary
 # ==============================================================================
+
 message(STATUS "")
 message(STATUS "==================================================")
 message(STATUS "  ${PROJECT_NAME} v${PROJECT_VERSION}")
