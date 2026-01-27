@@ -5,7 +5,7 @@
 /* Includes */
 
 #include "scaffold_project/scaffold_project.h"
-#include "unity.h"
+#include "unity/unity.h"
 #include <limits.h>
 #include <string.h>
 
@@ -27,7 +27,7 @@ void test_get_version_should_return_version_string(void)
 {
     const char *version = scaffold_project_get_version();
     TEST_ASSERT_NOT_NULL(version);
-    TEST_ASSERT_EQUAL_STRING("1.0.0", version);
+    TEST_ASSERT_EQUAL_STRING("0.0.1", version);
 }
 
 /* Test Cases for scaffold_projectAdd */

@@ -29,7 +29,7 @@ cmake -DBUILD_TESTS=ON ..
 make
 ctest                    # Run all tests
 ctest --verbose          # Run with detailed output
-./test_scaffold_project       # Run test executable directly
+./ScaffoldProjectUnitTest       # Run test executable directly
 ```
 
 ### Build Shared Library
@@ -259,7 +259,7 @@ Uses Unity Test Framework (ThrowTheSwitch/Unity) with intelligent fallback mecha
 **Adding new test files:**
 1. Create `test/test_mymodule.c`
 2. Update `test/CMakeLists.txt`:
-   - Add to `target_sources(test_scaffold_project PRIVATE test_mymodule.c)`
+   - Add to `target_sources(ScaffoldProjectUnitTest PRIVATE test_mymodule.c)`
    - Or create a new test executable and register with `add_test()`
 
 See `test/README.md` for comprehensive Unity assertions reference.

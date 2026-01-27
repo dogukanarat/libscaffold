@@ -16,26 +16,9 @@ extern "C"
 
 /* Configurations */
 
-/* API visibility */
-#if defined(_WIN32) || defined(__CYGWIN__)
-#ifdef SCAFFOLD_PROJECT_EXPORTS
-#define SCAFFOLD_PROJECT_API __declspec(dllexport)
-#else
-#define SCAFFOLD_PROJECT_API __declspec(dllimport)
-#endif
-#elif defined(__GNUC__) && __GNUC__ >= 4
-#define SCAFFOLD_PROJECT_API __attribute__((visibility("default")))
-#else
-#define SCAFFOLD_PROJECT_API
-#endif
-
 
 /* Definitions */
 
-#define SCAFFOLD_PROJECT_MAX_STRING_LEN 256
-#define SCAFFOLD_PROJECT_VERSION_MAJOR 1
-#define SCAFFOLD_PROJECT_VERSION_MINOR 0
-#define SCAFFOLD_PROJECT_VERSION_PATCH 0
 
 /* Types */
 

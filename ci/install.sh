@@ -212,6 +212,6 @@ elif [ "$INSTALL_PREFIX" != "/usr/local" ] && [ "$INSTALL_PREFIX" != "/usr" ]; t
 fi
 
 print_info "To use in your CMakeLists.txt:"
-echo "  find_package(scaffold_project REQUIRED)"
-echo "  target_link_libraries(your_target PRIVATE scaffold_project::scaffold_project)"
+echo "  find_package(ScaffoldProject REQUIRED)"
+echo "  target_link_libraries(YourTarget PRIVATE ScaffoldProject::ScaffoldProject)"
 echo ""

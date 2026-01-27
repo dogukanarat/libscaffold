@@ -239,7 +239,8 @@ static void printVersion(bool verbose)
     if (verbose)
     {
         const char msg[] = "Calling scaffold_project_get_version()...\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        ssize_t ret = write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        (void)ret; /* Intentionally unused - verbose logging only */
     }
 
     const char *version = scaffold_project_get_version();
@@ -248,7 +249,8 @@ static void printVersion(bool verbose)
     if (verbose)
     {
         const char msg[] = "Version retrieved successfully\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        ssize_t ret = write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        (void)ret; /* Intentionally unused - verbose logging only */
     }
 }
 

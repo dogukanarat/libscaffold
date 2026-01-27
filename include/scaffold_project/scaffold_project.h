@@ -12,9 +12,13 @@ extern "C"
 
 /* Includes */
 
-#include "scaffold_project_types.h"
 #include <stdbool.h>
 #include <stddef.h>
+
+#include "scaffold_project/config.h"
+#include "scaffold_project/version.h"
+#include "scaffold_project/export.h"
+#include "scaffold_project/scaffold_project_types.h"
 
 /* Configurations */
 

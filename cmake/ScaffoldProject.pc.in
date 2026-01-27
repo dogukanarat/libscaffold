@@ -3,8 +3,9 @@
 
 prefix=@CMAKE_INSTALL_PREFIX@
 exec_prefix=${prefix}
-libdir=@CMAKE_INSTALL_FULL_LIBDIR@
-includedir=@CMAKE_INSTALL_FULL_INCLUDEDIR@
+# Use relative paths for better relocatability
+libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
 
 Name: @PROJECT_NAME@
 Description: @PROJECT_DESCRIPTION@
@@ -12,21 +13,16 @@ Version: @PROJECT_VERSION@
 URL: https://github.com/dogukanarat/libscaffoldproject
 
 # Libraries to link against
-# Add any additional libraries required by ScaffoldProject here
-# Example: Libs: -L${libdir} -lScaffoldProject -lm -lpthread
-Libs: -L${libdir} -lScaffoldProject
+# CRITICAL FIX: Changed -lScaffoldProject to -lscaffoldproject
+# matches the OUTPUT_NAME set in CMakeLists.txt
+Libs: -L${libdir} -lscaffoldproject
 
 # Private libraries only needed when linking statically
-# Example: Libs.private: -lm -lpthread
 Libs.private:
 
 # Include directories
 Cflags: -I${includedir}
 
-# Dependencies (other pkg-config modules required by this library)
-# Example: Requires: openssl >= 1.1.0
+# Dependencies
 Requires:
-
-# Private dependencies only needed when linking statically
-# Example: Requires.private: zlib >= 1.2.0
 Requires.private:

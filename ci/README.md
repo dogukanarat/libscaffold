@@ -26,7 +26,7 @@ Performs a clean debug build with tests enabled and runs the test suite.
 
 **Output:**
 - Build artifacts in `build/`
-- Test executable: `build/test/test_scaffold_project`
+- Test executable: `build/test/ScaffoldProjectUnitTest`
 - Detailed test output with pass/fail status
 
 ---
@@ -57,7 +57,7 @@ Performs an optimized release build of the project.
 - CI/CD release pipelines
 
 **Output:**
-- Optimized library: `build/scaffoldproject_project.a`
+- Optimized library: `build/libscaffoldproject.a`
 - No debug symbols (smaller binary size)
 - Maximum optimization enabled
 

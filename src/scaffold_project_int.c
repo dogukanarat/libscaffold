@@ -21,3 +21,6 @@
 
 
 /* Functions */
+
+/* Placeholder to prevent empty translation unit warning */
+typedef int scaffold_project_int_placeholder;

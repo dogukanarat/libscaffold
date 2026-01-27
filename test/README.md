@@ -27,7 +27,7 @@ ctest
 ctest --verbose
 
 # Run specific test
-./test_scaffold_project
+./ScaffoldProjectUnitTest
 ```
 
 ## Writing Tests

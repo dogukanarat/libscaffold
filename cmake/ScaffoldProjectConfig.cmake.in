@@ -3,40 +3,23 @@
 # ==============================================================================
 # scaffold_project CMake Package Configuration File
 # ==============================================================================
-# This file is used by find_package(ScaffoldProject) to locate and configure
-# the ScaffoldProject library for use in other CMake projects.
-
-# ==============================================================================
-# Package Version Information
-# ==============================================================================
-set(ScaffoldProject_VERSION "@PROJECT_VERSION@")
-set(ScaffoldProject_VERSION_MAJOR "@PROJECT_VERSION_MAJOR@")
-set(ScaffoldProject_VERSION_MINOR "@PROJECT_VERSION_MINOR@")
-set(ScaffoldProject_VERSION_PATCH "@PROJECT_VERSION_PATCH@")
 
 # ==============================================================================
 # Dependencies
 # ==============================================================================
-# Find and configure any dependencies that scaffold_project requires
-# Add dependencies here as needed, for example:
-# find_dependency(SomePackage REQUIRED)
-
 include(CMakeFindDependencyMacro)
 
-# Note: Standard C library dependencies (like math library) are handled
-# automatically by CMake and don't need to be listed here
-
-# Example dependency declarations (uncomment and modify as needed):
+# List dependencies here. Example:
 # find_dependency(Threads)
-# find_dependency(OpenSSL REQUIRED COMPONENTS SSL Crypto)
 
 # ==============================================================================
 # Component Support
 # ==============================================================================
-# Supported components for this package
+# (Optional: Only keep this if you actually separate your library into 
+#  distinct targets like ScaffoldProject::Core and ScaffoldProject::Utils)
+
 set(_ScaffoldProject_supported_components Runtime Development)
 
-# Validate requested components
 foreach(_comp ${ScaffoldProject_FIND_COMPONENTS})
     if(NOT _comp IN_LIST _ScaffoldProject_supported_components)
         set(ScaffoldProject_FOUND False)
@@ -47,31 +30,22 @@ endforeach()
 # ==============================================================================
 # Import Targets
 # ==============================================================================
-# Include the targets file generated during installation
-# This file defines the ScaffoldProject::ScaffoldProject target
 if(NOT TARGET ScaffoldProject::ScaffoldProject)
     include("${CMAKE_CURRENT_LIST_DIR}/ScaffoldProjectTargets.cmake")
 endif()
 
-# Verify that the main library target was successfully imported
-if(NOT TARGET ScaffoldProject::ScaffoldProject)
-    set(ScaffoldProject_FOUND False)
-    set(ScaffoldProject_NOT_FOUND_MESSAGE "Target ScaffoldProject::ScaffoldProject not found")
-endif()
+# ==============================================================================
+# Package Variables (Legacy Support)
+# ==============================================================================
 
-# ==============================================================================
-# Package Variables
-# ==============================================================================
-# Set convenience variables for downstream projects
+# 1. Main Library Variable
 set(ScaffoldProject_LIBRARIES ScaffoldProject::ScaffoldProject)
-set(ScaffoldProject_INCLUDE_DIRS "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@")
 
-# Legacy variables for compatibility (not recommended for new projects)
-set(scaffold_project_LIBRARIES ${ScaffoldProject_LIBRARIES})
-set(scaffold_project_INCLUDE_DIRS ${ScaffoldProject_INCLUDE_DIRS})
+# 2. Include Dirs (Using set_and_check for safety)
+#    Requires PATH_VARS CMAKE_INSTALL_INCLUDEDIR in CMakeLists.txt
+set_and_check(ScaffoldProject_INCLUDE_DIRS "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@")
 
 # ==============================================================================
 # Finalization
 # ==============================================================================
-# Validate that all required components are available
 check_required_components(ScaffoldProject)
